@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        <%= locals.title %>
+    </title>
+    <!-- Metas-->
+    <meta name="title" content="Globalincomeinvest - Digital CFD Trading Platform">
+    <meta name="description"
+        content="Pioneering Global Company Transforming Currency Solutions for Individuals and Businesses. Enabling Clients to Meet Their Currency Needs with Excellence.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="index-2.html">
+    <meta property="og:title" content="Globalincomeinvest - Digital CFD Trading Platform">
+    <meta property="og:description"
+        content="Pioneering the Future of Currency Solutions for Retail and Corporate Clients. Empowering Clients to Seamlessly Fulfill all their Currency Requirements.">
+    <meta property="og:image" content="images/img-trading-platform-screens.html">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="index-2.html">
+    <meta property="twitter:title"
+        content="Globalincomeinvest - Leading Trading Brokerage with a Cutting-Edge Online CFD Trading Platform">
+    <meta property="twitter:description"
+        content="Prominent International Company Providing Advanced Currency Solutions for Retail and Corporate Clients. Transforming Currency Fulfillment to Empower Our Clients.">
+    <meta property="twitter:image" content="vbanner.html">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="capcrtfavicon.png">
+
+    <!--CSS Files -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/skins/orange.css">
+    <link href="images/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+
+    <!-- Animate Css -->
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+
+
+    <!-- Live Style Switcher - demo only -->
+    <link rel="alternate stylesheet" type="text/css" title="orange" href="css/skins/orange.css" />
+    <link rel="alternate stylesheet" type="text/css" title="green" href="css/skins/green.css" />
+    <link rel="alternate stylesheet" type="text/css" title="blue" href="css/skins/blue.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleswitcher.css" />
+
+    <!-- Template JS Files -->
+    <script src="js/modernizr.js"></script>
+    <!-- Smartsupp Live Chat script -->
+    <!--<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '8f9157d597569e964e909abf443f9855c335b21e';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='../www.smartsuppchat.com/loaderd41d.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>-->
+
+    <style>
+        .tree {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .tree ul {
+            list-style: none;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .tree li {
+            position: relative;
+            padding: 10px 0;
+            margin: 5px 0;
+        }
+
+        .tree li:before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -20px;
+            width: 20px;
+            height: 1px;
+            background: #ccc;
+        }
+
+        .tree li:after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: -20px;
+            width: 20px;
+            height: 20px;
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+        }
+
+        .tree li:last-child:after {
+            border-left: none;
+        }
+
+        .tree li:last-child:before {
+            border-left: none;
+        }
+
+        .crypto-node {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .crypto-node:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .price {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .change-up {
+            border-left: 4px solid #4CAF50;
+        }
+
+        .change-down {
+            border-left: 4px solid #f44336;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Preloader Starts --->
+    <div id="preloader">
+        <div id="preloader-content">
+            <img src="images/capcrtloader.png" class="scaleup">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+
+        </div>
+    </div>
+    <!--Preloader Ends -->
+
+    <!-- Wrapper Starts -->
+    <div class="wrapper">
+        <!-- Header Starts -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <!-- Logo Starts -->
+                    <div class="main-logo col-xs-12 col-md-3 col-md-2 col-lg-2 hidden-xs">
+                        <a href="">
+                            <img id="logo" class="img-responsive" src="images/capcrtlogo.png" alt="logo"
+                                style="max-width:300px">
+                        </a>
+                    </div>
+                    <!-- Logo Ends -->
+                    <!-- Statistics Starts -->
+                    <div class="col-md-7 col-lg-7">
+
+
+                    </div>
+                    <!-- Statistics Ends -->
+                    <!-- User Sign In/Sign Up Starts -->
+                    <div class="col-md-3 col-lg-3">
+                        <ul class="unstyled user">
+                            <li class="sign-in"><a href="/login" class="btn btn-primary"><i
+                                        class="fa fa-user"></i>&nbsp;login</a></li>
+                            <li class="sign-up"><a href="/register" class="btn btn-primary"><i
+                                        class="fas fa-sign-in-alt"></i>&nbsp;register</a></li>
+                            <li>
+                                <div id='google_translate_element'></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- User Sign In/Sign Up Ends -->
+                </div>
+            </div>
+            <!-- Navigation Menu Starts -->
+            <nav class="site-navigation navigation" id="site-navigation">
+                <div class="container">
+                    <div class="site-nav-inner">
+                        <!-- Logo For ONLY Mobile display Starts -->
+                        <a class="logo-mobile" href="index-2.html">
+                            <img id="logo-mobile" class="img-responsive" src="images/capcrtlogo.png" alt="Home Logo">
+                        </a>
+                        <!-- Logo For ONLY Mobile display Ends -->
+                        <!-- Toggle Icon for Mobile Starts -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Toggle Icon for Mobile Ends -->
+                        <div class="collapse navbar-collapse navbar-responsive-collapse">
+                            <!-- Main Menu Starts -->
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/">Home</a></li>
+                                <li><a href="/about">About Us</a></li>
+                                <!--   <li><a href="services.html">Services</a></li>
+                                <li><a href="https://app.globalincomeinvest.com/login">Plans</a></li>
+                                <li><a href="faq.html">FAQs</a></li>-->
+                                <li><a href="/contact">Contact</a></li>
+
+
+                            </ul>
+                            <!-- Main Menu Ends -->
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+            <div class="container" style="width: 100%;padding: 0;">
+                <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                    src="https://s.tradingview.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22proName%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22title%22%3A%22S%26P%20500%22%7D%2C%7B%22proName%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22title%22%3A%22Nasdaq%20100%22%7D%2C%7B%22proName%22%3A%22FX_IDC%3AEURUSD%22%2C%22title%22%3A%22EUR%2FUSD%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3ABTCUSD%22%2C%22title%22%3A%22BTC%2FUSD%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3AETHUSD%22%2C%22title%22%3A%22ETH%2FUSD%22%7D%5D%2C%22showSymbolLogo%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22displayMode%22%3A%22regular%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22Globalincomeinvest.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22Globalincomeinvest.com%2F%22%7D"
+                    style="box-sizing: border-box; display: block; height: 46px; width: 100%;"></iframe>
+            </div>
+            <!-- Navigation Menu Ends -->
+        </header>

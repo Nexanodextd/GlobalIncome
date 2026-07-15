@@ -1,0 +1,1038 @@
+<%- include('user_partials/header') %>
+  <style>
+    body {
+      background: #061226;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .top-title {
+      text-align: center;
+      padding: 50px 0 20px;
+    }
+
+    .top-title h1 {
+      font-size: 60px;
+      font-weight: 700;
+    }
+
+    .top-title p {
+      color: #b2bdd0;
+      font-size: 22px;
+    }
+
+    .top-title span {
+      color: #3b82f6;
+      font-weight: 700;
+    }
+
+    /* STEP BAR */
+
+    .step-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      background: #253044;
+      color: #b8c3d8;
+    }
+
+    .step.active .step-circle {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .step.current .step-circle {
+      border: 2px solid #3b82f6;
+      color: #3b82f6;
+      background: transparent;
+    }
+
+    .step span {
+      color: #b2bdd0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .step.active span,
+    .step.current span {
+      color: #fff;
+    }
+
+    .line {
+      width: 60px;
+      height: 2px;
+      background: #3a465d;
+    }
+
+    /* CARD */
+
+    .deposit-card {
+      background: linear-gradient(135deg,
+          #0f1d38,
+          #1a1743);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      overflow: hidden;
+      margin-top: 60px;
+    }
+
+    .card-header-custom {
+      padding: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .card-subtitle {
+      color: #a5b2c8;
+      font-size: 18px;
+    }
+
+    .badge-custom {
+      background: #123c2b;
+      color: #2fff9b;
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-size: 14px;
+      border: 1px solid rgba(47, 255, 155, 0.2);
+    }
+
+    .badge-support {
+      background: #18356d;
+      color: #67a4ff;
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-size: 14px;
+      border: 1px solid rgba(103, 164, 255, 0.2);
+    }
+
+    /* INNER BOX */
+
+    .inner-box {
+      margin: 28px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 60px 20px;
+      background: linear-gradient(135deg,
+          rgba(25, 43, 77, 0.9),
+          rgba(39, 35, 78, 0.9));
+      text-align: center;
+    }
+
+    .amount-label {
+      color: #9ba8bf;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .amount {
+      font-size: 90px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .amount small {
+      font-size: 40px;
+    }
+
+    .warning-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      background: rgba(255, 179, 0, 0.15);
+      border: 1px solid rgba(255, 179, 0, 0.3);
+      color: #ffc247;
+      border-radius: 40px;
+      padding: 12px 22px;
+      font-weight: 600;
+    }
+
+    /* =========================================
+   MOBILE RESPONSIVE DESIGN
+   ADD THIS BELOW YOUR CURRENT CSS
+========================================= */
+
+    @media(max-width:768px) {
+
+      /* PAGE */
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .container-fluid {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+      }
+
+      /* TITLE */
+
+      .top-title {
+        padding-top: 35px;
+      }
+
+      .top-title h1 {
+        font-size: 34px;
+        line-height: 1.2;
+      }
+
+      .top-title p {
+        font-size: 16px;
+        line-height: 1.7;
+        padding: 0 10px;
+      }
+
+      /* STEP BAR */
+      .step-wrapper {
+        padding: 0 10px;
+        margin: 15px 0;
+      }
+
+      .step-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+
+      .step-circle i {
+        font-size: 14px;
+      }
+
+      .line {
+        top: 16px;
+      }
+
+      .step span {
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+
+      /* MAIN CARD */
+
+      .deposit-card {
+        margin-top: 35px;
+        border-radius: 22px;
+        overflow: hidden;
+      }
+
+      .card-header-custom {
+        padding: 18px;
+      }
+
+      /* HEADER */
+
+      .card-title {
+        font-size: 18px;
+      }
+
+      .card-subtitle {
+        font-size: 15px;
+      }
+
+      /* BADGES */
+
+      .badge-custom,
+      .badge-support {
+        font-size: 13px;
+        padding: 6px 12px;
+        margin-left: 2%;
+
+      }
+
+      .media-width {
+        width: 100%;
+      }
+
+      /* INNER BOX */
+
+      .inner-box {
+        margin: 18px;
+        padding: 45px 15px;
+        border-radius: 20px;
+      }
+
+      .amount-label {
+        font-size: 17px;
+      }
+
+      .amount {
+        font-size: 54px;
+      }
+
+      .amount small {
+        font-size: 26px;
+      }
+
+      .warning-badge {
+        font-size: 13px;
+        padding: 10px 15px;
+        margin-top: 18px;
+      }
+
+      /* INSTRUCTION CARD */
+
+      .instruction-card {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .instruction-title {
+        font-size: 18px;
+      }
+
+      .instruction-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+
+      .step-box {
+        align-items: flex-start;
+      }
+
+      .step-box h5 {
+        font-size: 16px;
+      }
+
+      .step-box p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      /* QR SECTION */
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .qr-wrapper {
+        min-height: auto;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .qr-image {
+        width: 100%;
+        max-width: 220px;
+      }
+
+      .download-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+      }
+
+      /* WALLET */
+
+      .wallet-box {
+        flex-direction: column;
+        border-radius: 16px;
+      }
+
+      .wallet-input {
+        width: 100%;
+        font-size: 14px;
+        padding: 15px;
+      }
+
+      .copy-btn {
+        width: 100%;
+        height: 50px;
+        font-size: 15px;
+      }
+
+      /* UPLOAD */
+
+      .upload-box {
+        min-height: 220px;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .upload-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+      }
+
+      .upload-box h4 {
+        font-size: 20px;
+      }
+
+      .upload-box p {
+        font-size: 14px;
+      }
+
+      .secure-badge {
+        width: 90%;
+        position: relative;
+        right: 30%;
+
+        font-size: 10px;
+        font-weight: 200;
+
+
+      }
+
+    }
+
+    /* ADD THIS CSS TO YOUR PREVIOUS STYLE */
+
+    .instruction-card {
+      background: #0c1730;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .instruction-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #173a74;
+      color: #5ea2ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .instruction-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .step-box {
+      display: flex;
+      gap: 14px;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #3b82f6;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      min-width: 32px;
+    }
+
+    .step-box h5 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .step-box p {
+      color: #9aa8bf;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .payment-section {
+      height: 100%;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .section-title i {
+      color: #5ea2ff;
+      margin-right: 8px;
+    }
+
+    .qr-wrapper {
+      background: #fff;
+      border-radius: 22px;
+      padding: 24px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 320px;
+    }
+
+    .qr-image {
+      max-width: 300px;
+    }
+
+    .download-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 12px;
+      background: #ececec;
+      color: #444;
+    }
+
+    .wallet-box {
+      display: flex;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .wallet-input {
+      flex: 1;
+      background: #13233d;
+      border: none;
+      color: #fff;
+      padding: 18px;
+      outline: none;
+    }
+
+    .copy-btn {
+      background: #2563eb;
+      border: none;
+      color: #fff;
+      padding: 0 24px;
+      font-weight: 600;
+    }
+
+    .upload-box {
+      width: 100%;
+      min-height: 260px;
+      border: 2px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      background: #07152d;
+    }
+
+    .upload-box:hover {
+      border-color: #3b82f6;
+      background: #0b1b38;
+    }
+
+    .upload-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #173a74;
+      color: #5ea2ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .upload-box h4 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .upload-box p {
+      color: #98a8c2;
+      margin: 0;
+    }
+
+    @media(max-width:768px) {
+
+      .wallet-box {
+        flex-direction: column;
+      }
+
+      .copy-btn {
+        height: 55px;
+      }
+
+      .upload-box h4 {
+        font-size: 22px;
+      }
+
+    }
+
+    .secure-badge {
+
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+      padding: 14px 22px;
+
+      border-radius: 40px;
+
+      background: rgba(20, 55, 120, 0.18);
+
+      border: 1px solid rgba(59, 130, 246, 0.25);
+
+      color: #67a4ff;
+
+      font-size: 20px;
+      font-weight: 600;
+
+      backdrop-filter: blur(10px);
+
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 0 25px rgba(37, 99, 235, 0.08);
+
+      margin-left: 32%;
+      margin-top: 4%;
+      margin-bottom: 4%;
+
+    }
+
+    .secure-icon {
+
+      width: 34px;
+      height: 34px;
+
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: rgba(37, 99, 235, 0.12);
+
+      color: #60a5fa;
+
+      font-size: 18px;
+
+    }
+  </style>
+  <!-- Main Content -->
+  <div class="main-content">
+    <section class="section">
+      <div class="section-body">
+        <!-- add content here -->
+        <div class="row">
+          <div class="col-12 col-md-12 col-sm-12">
+            <div class="card" style="background-color: #061226;">
+
+              <div class="card-body">
+                <div class="secure-badge">
+
+                  <div class="secure-icon">
+
+                    <i class="bi bi-shield-check"></i>
+
+                  </div>
+
+                  <span>
+                    Secure Payment Gateway
+                  </span>
+
+                </div>
+
+
+                <div class="container-fluid px-lg-5">
+
+
+                  <!-- TITLE -->
+                  <div class="top-title" style="color: white;">
+
+                    <h4>
+                      Complete Your Deposit
+                    </h4>
+
+                    <p style="color: white;">
+                      Securely deposit funds using
+                      <span>USDT</span>
+                      to start trading immediately
+                    </p>
+
+                  </div>
+
+                  <!-- STEP BAR -->
+                  <div class="step-wrapper">
+
+                    <div class="step active">
+
+                      <div class="step-circle">
+                        <i class="bi bi-check-lg"></i>
+                      </div>
+
+                      <span>Payment Method</span>
+
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="step current">
+
+                      <div class="step-circle">
+                        2
+                      </div>
+
+                      <span>Send Payment</span>
+
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="step">
+
+                      <div class="step-circle">
+                        3
+                      </div>
+
+                      <span>Confirmation</span>
+
+                    </div>
+                    <div class="line"></div>
+                  </div>
+
+                  <!-- CARD -->
+                  <div class="deposit-card">
+
+                    <!-- HEADER -->
+                    <div class="card-header-custom">
+
+                      <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
+
+                        <!-- LEFT -->
+                        <div class="d-flex align-items-center gap-3">
+
+                          <div>
+
+                            <div class="card-title" style="color: white;">
+                              <i class="bi bi-credit-card" style="color: #67a4ff;"></i>
+                              Payment Details
+                            </div>
+
+                            <div class="card-subtitle" style="margin-left: 11%; margin-bottom: 2%;">
+                               <span id="paymentMethod"></span>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <!-- RIGHT -->
+                        <div class="d-flex align-items-center gap-3 flex-wrap media-width">
+
+                          <div class="badge-custom">
+                            <i class="bi bi-shield-check"></i>
+                            SSL Secured
+                          </div>
+
+                          <div class="badge-support">
+                            <i class="bi bi-clock"></i>
+                            24/7 Support
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <!-- BODY -->
+                    <div class="inner-box">
+
+                      <div class="amount-label">
+
+                        <i class="bi bi-cash-stack"></i>
+                        Amount to Deposit
+
+                      </div>
+
+                      <div class="amount">
+
+                        <span id="amount"></span><small>$</small>
+
+                      </div>
+
+                      <div class="warning-badge">
+
+                        <i class="bi bi-exclamation-triangle"></i>
+
+                        Send exact amount to avoid delays
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+              </div><!--end of card body-->
+
+
+            </div><!--end of card-->
+
+          </div>
+
+
+        </div>
+
+        <div class="card" style="background-color: #061226;">
+          <div class="card-body">
+
+
+            <!-- PAYMENT INSTRUCTIONS -->
+            <div class="mx-4 mb-4">
+
+              <div class="instruction-card">
+
+                <!-- TOP -->
+                <div class="d-flex align-items-start gap-3 mb-4">
+
+                  <div class="instruction-icon">
+                    <i class="bi bi-info-circle"></i>
+                  </div>
+
+                  <div>
+
+                    <h3 class="instruction-title">
+                      How to Complete Your Payment
+                    </h3>
+
+                    <!-- STEPS -->
+                    <div class="row g-4 mt-1">
+
+                      <div class="col-md-4">
+
+                        <div class="step-box">
+
+                          <div class="step-number">
+                            1
+                          </div>
+
+                          <div>
+
+                            <h5>Send Payment</h5>
+
+                            <p>
+                              Transfer <span id="money"></span> to the wallet address
+                            </p>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="col-md-4">
+
+                        <div class="step-box">
+
+                          <div class="step-number">
+                            2
+                          </div>
+
+                          <div>
+
+                            <h5>Upload Proof</h5>
+
+                            <p>
+                              Take a screenshot of your transaction
+                            </p>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="col-md-4">
+
+                        <div class="step-box">
+
+                          <div class="step-number">
+                            3
+                          </div>
+
+                          <div>
+
+                            <h5>Submit & Wait</h5>
+
+                            <p>
+                              Submit proof and wait for confirmation
+                            </p>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- QR + UPLOAD SECTION -->
+            <div class="row g-4 px-4 pb-4">
+
+              <!-- LEFT -->
+              <div class="col-lg-6">
+
+                <div class="payment-section">
+
+                  <h3 class="section-title mb-4">
+
+                    <i class="bi bi-qr-code"></i>
+                    QR Code Payment
+
+                  </h3>
+
+                  <div class="qr-wrapper">
+
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=CryptoPayment"
+                      class="img-fluid qr-image" />
+
+                    <button class="download-btn">
+
+                      <i class="bi bi-download"></i>
+
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- RIGHT -->
+              <div class="col-lg-6">
+
+                <div class="payment-section">
+                  <form id="payment-form">
+                    <!-- WALLET -->
+                    <h3 class="section-title mb-3">
+
+                      <i class="bi bi-wallet2"></i>
+                      Wallet Address
+
+                    </h3>
+
+                    <div class="wallet-box">
+                      <input type="hidden" name="" id="type" value="deposit">
+                      <input type="text" id="inputPaymentMethod">
+                      <input type="hidden" id="userid" value="<%= user._id %>">
+                      <input type="hidden" id="payment-amount">
+                      <input type="text" class="wallet-input" id="walletAddress"
+                        value="0x965e92C1377dA8cb91281CBA1e91398A8061Ed" readonly />
+
+                      <button class="copy-btn" id="copyWallet">
+
+                        <i class="bi bi-copy"></i>
+                        Copy
+
+                      </button>
+
+                    </div>
+
+                    <!-- UPLOAD -->
+                    <h3 class="section-title mt-5 mb-3">
+
+                      <i class="bi bi-upload"></i>
+                      Upload Payment Proof
+
+                    </h3>
+
+                    <label class="upload-box">
+
+                      <input type="file" id="fileupload" hidden />
+
+                      <div class="upload-icon">
+
+                        <i class="bi bi-cloud-arrow-up"></i>
+
+                      </div>
+
+                      <h4>
+                        Choose file or drag & drop
+                      </h4>
+
+                      <p>
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+
+                    </label>
+                    <button type="submit" class="btn btn-success" style="width: 100%;"> <i class="bi bi-send"></i>
+                      Submit Payment Prove</button>
+                </div>
+
+
+                </form>
+              </div>
+
+            </div>
+          </div><!--End of card body-->
+        </div><!--End of Card-->
+
+
+      </div><!--end of section body-->
+    </section>
+
+  </div>
+  <footer class="main-footer">
+    <div class="footer-left">
+      <a href="">Global Invest</a></a>
+    </div>
+    <div class="footer-right">
+    </div>
+  </footer>
+  </div>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+  <!-- script for payment and transactions-->
+  <script src="assets/js/all.js"></script>
+  <script src="assets/bundles/sweetalert/sweetalert.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/sweetalert.js"></script>
+  </body>
+
+
+  <!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
+  </html>

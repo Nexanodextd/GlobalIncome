@@ -1,0 +1,119 @@
+<%- include('user_partials/header') %>
+  <!-- Main Content -->
+  <div class="main-content">
+    <section class="section">
+      <div class="section-body">
+        <div class="card">
+          <div class="card-header">
+            <span><b>Deposit History</b></span>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped" id="table-1">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      #
+                    </th>
+                    <th>TransID</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Currency</th>
+                    <th>Method</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% transHistory.forEach(function(trans){ %>
+
+
+                    <tr>
+                      <td>
+                        3
+                      </td>
+                      <td>
+                        <%= trans._id %>
+                      </td>
+                      <td class="align-middle">
+                        <%= trans.type %>
+                      </td>
+                      <td>
+                        $<%= trans.amount.toLocaleString() %>
+                      </td>
+                      <td>
+                        <%= trans.currency %>
+                      </td>
+                      <td>
+                        <%= trans.method %>
+                      </td>
+                      <td>
+                        <%= trans.createdAt %>
+                      </td>
+                      <td>
+                        <% if(trans.status=="pending" ){%>
+                          <div class="badge badge-warning badge-shadow">
+                            <%= trans.status %>
+                          </div>
+
+                          <%}else if(trans.status=="completed" ){%>
+                            <div class="badge badge-success badge-shadow">
+                              <%= trans.status %>
+                            </div>
+                            <% }else if( trans.status=="failed" ){ %>
+                              <div class="badge badge-danger badge-shadow">
+                                <%= trans.status %>
+                              </div>
+                              <% }else{%>
+                                <div class="badge badge-danger badge-shadow">
+                                  <%= trans.status %>
+                                </div>
+                                <% } %>
+                      </td>
+
+                    </tr>
+                    <% }) %>
+
+
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div><!--end of section body-->
+    </section>
+
+  </div>
+  <footer class="main-footer">
+    <div class="footer-left">
+      <a href="">Global Invest</a></a>
+    </div>
+    <div class="footer-right">
+    </div>
+  </footer>
+  </div>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/bundles/datatables/datatables.min.js"></script>
+  <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/datatables.js"></script>
+  </body>
+
+
+  <!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
+  </html>
