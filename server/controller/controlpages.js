@@ -2,6 +2,7 @@ const userModel = require('../models/users_model');
 const Wallet  = require('../models/wallet');
 const Kyc = require('../models/kyc');
 const trans = require('../models/transaction');
+const investmentHistory = require('../models/investment_model');
 exports.home = async(req,res)=>{
       const locals={
            title:"Home - Globalincomeinvest"
@@ -37,12 +38,17 @@ exports.dashboard = async(req,res)=>{
              const wallet = await Wallet.findOne({user:ID});
              const kyc = await Kyc.findOne({user:ID});
              
+             const investments = await investmentHistory.find({user:ID});
+             
+              const totalInvestment_amount = investments.reduce((total,investment)=> total+investment.amount,0);
+              totalAmount = totalInvestment_amount.toLocaleString();
         res.render('user/index',
           {
                locals,
                user,
                wallet,
-               kyc
+               kyc,
+               totalAmount
           });
 }
 
@@ -101,7 +107,7 @@ exports.depositHistory = async(req,res)=>{
 
 exports.investmentPlans = async(req,res)=>{
        const locals={
-           title:"Deposit History"
+           title:"Investment Plans"
             }
              const ID = req.user.id;
              const user = await userModel.findOne({_id:ID});
@@ -109,6 +115,57 @@ exports.investmentPlans = async(req,res)=>{
              const kyc = await Kyc.findOne({user:ID});
              
         res.render('user/investment-plans',
+          {
+               locals,   
+               user,
+               kyc,
+              
+          });
+}
+exports.investmentHistory = async(req,res)=>{
+       const locals={
+           title:"Investment History"
+            }
+             const ID = req.user.id;
+             const user = await userModel.findOne({_id:ID});
+             const investHistory = await investmentHistory.find({user:ID});
+        res.render('user/investment-history',
+          {
+               locals,   
+               user,
+               investHistory
+              
+          });
+}
+exports.portforlio = async(req,res)=>{
+
+      const locals={
+           title:"Portfolio"
+            }
+             const ID = req.user.id;
+             const user = await userModel.findOne({_id:ID});
+            // const transHistory = await trans.find({user:ID});
+             const kyc = await Kyc.findOne({user:ID});
+             
+        res.render('user/portfolio',
+          {
+               locals,   
+               user,
+               kyc,
+              
+          });
+}
+exports.profile = async(req,res)=>{
+
+      const locals={
+           title:"Profile"
+            }
+             const ID = req.user.id;
+             const user = await userModel.findOne({_id:ID});
+            // const transHistory = await trans.find({user:ID});
+             const kyc = await Kyc.findOne({user:ID});
+             
+        res.render('user/profile',
           {
                locals,   
                user,

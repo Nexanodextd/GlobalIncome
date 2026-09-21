@@ -669,7 +669,7 @@
 
                     <p style="color: white;">
                       Securely deposit funds using
-                      <span>USDT</span>
+                      <span id="walletcoin"></span>
                       to start trading immediately
                     </p>
 
@@ -938,7 +938,7 @@
               <div class="col-lg-6">
 
                 <div class="payment-section">
-                  <form id="payment-form">
+                  <form id="payment-form" >
                     <!-- WALLET -->
                     <h3 class="section-title mb-3">
 
@@ -949,11 +949,11 @@
 
                     <div class="wallet-box">
                       <input type="hidden" name="" id="type" value="deposit">
-                      <input type="text" id="inputPaymentMethod">
+                      <input type="text" id="inputPaymentMethod" readonly style="border: none; width: 10%;">
                       <input type="hidden" id="userid" value="<%= user._id %>">
                       <input type="hidden" id="payment-amount">
                       <input type="text" class="wallet-input" id="walletAddress"
-                        value="0x965e92C1377dA8cb91281CBA1e91398A8061Ed" readonly />
+                        value="" readonly />
 
                       <button class="copy-btn" id="copyWallet">
 
@@ -991,7 +991,7 @@
                       </p>
 
                     </label>
-                    <button type="submit" class="btn btn-success" style="width: 100%;"> <i class="bi bi-send"></i>
+                    <button type="submit" id="submit_payment_prove" class="btn btn-success" style="width: 100%;"> <i class="bi bi-send"></i>
                       Submit Payment Prove</button>
                 </div>
 

@@ -1,0 +1,104 @@
+<%- include('user_partials/header') %>
+  <!-- Main Content -->
+  <div class="main-content">
+    <section class="section">
+      <div class="section-body">
+
+
+
+        <div class="container py-5">
+
+          <!-- HEADER -->
+          <!--- <div class="top-section  mb-5" style="margin-top: -14%;">
+            <h1>Fund Your Account</h1>
+            <p>Secure deposits to start trading</p>
+          </div>-->
+
+
+          <!-- MAIN CONTENT -->
+          <div class="row g-8">
+
+            <!-- LEFT -->
+            <div class="col-lg-12" style="margin-bottom: 2%;">
+
+              <div class="card-custom">
+
+                <div class="table-responsive">
+                  <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Duration</th>
+                        <th>Start date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% investHistory.forEach(function(i) { %>
+
+                        <tr>
+                          <td><%= i.packageName %></td>
+                          <td><%= i.amount %></td>
+
+                          <td><%= i.duration %></td>
+                          <td><%= i.createdAt %></td>
+                        </tr>
+
+                        <% }) %>
+
+                        
+                    </tbody>
+                  </table>
+                </div>
+
+
+                <!--Body of the table here-->
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+      </div><!--end of section body-->
+    </section>
+
+  </div>
+  <footer class="main-footer">
+    <div class="footer-left">
+      <a href="">Global Invest</a></a>
+    </div>
+    <div class="footer-right">
+    </div>
+  </footer>
+  </div>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/bundles/datatables/datatables.min.js"></script>
+  <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/bundles/datatables/export-tables/dataTables.buttons.min.js"></script>
+  <script src="assets/bundles/datatables/export-tables/buttons.flash.min.js"></script>
+  <script src="assets/bundles/datatables/export-tables/jszip.min.js"></script>
+  <script src="assets/bundles/datatables/export-tables/pdfmake.min.js"></script>
+  <script src="assets/bundles/datatables/export-tables/vfs_fonts.js"></script>
+  <script src="assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
+  <script src="assets/js/page/datatables.js"></script>
+
+  </body>
+
+
+  <!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
+  </html>

@@ -49,7 +49,19 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
-    
+    address:{
+        type:String,
+        required:false
+    },
+    dob:{
+         type:String,
+         required:false
+
+    },
+    displayPicture:{
+         type:String,
+         required:false
+    },
     createAt: {
         type: String, // Store as a formatted string
         default: function () {

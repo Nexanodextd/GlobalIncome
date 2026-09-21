@@ -1,5 +1,4 @@
 <style>
- 
   body {
 
     background: #071224;
@@ -62,6 +61,7 @@
     top: 18px;
     right: 18px;
 
+
     background: #18356d;
 
     color: #7db0ff;
@@ -101,9 +101,13 @@
 
     font-size: 33px;
     font-weight: 800;
-
+    margin-top: 6%;
     margin-bottom: 20px;
 
+  }
+
+  .lg-bottom {
+    margin-bottom: 2%;
   }
 
   .line {
@@ -226,7 +230,8 @@
 
     font-weight: 500;
 
-    padding-left: 58px;
+    padding-left: 4%;
+    text-align: center;
 
   }
 
@@ -425,391 +430,18 @@
   <div class="main-content">
     <section class="section">
       <div class="section-body">
-        
 
-          <div class="row g-4">
+        <div class="row g-4" id="displayPlans">
 
-          <!-- CARD 1 -->
-          <div class="col-lg-4">
 
-            <div class="investment-card">
-
-              <div class="roi-badge">
-
-                <i class="bi bi-graph-up-arrow"></i>
-
-                150% ROI
-
-              </div>
-
-              <div class="card-header-custom">
-
-                <h2 class="plan-title">
-                  Investment
-                </h2>
-
-                <div class="line"></div>
-
-                <div>
-
-                  <span class="price">
-                    $5,000
-                  </span>
-
-                  <span class="minimum">
-                    minimum
-                  </span>
-
-                </div>
-
-              </div>
-
-              <div class="card-body-custom">
-
-                <div class="feature">
-
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-
-                  <div>
-                    Min Investment: $5,000
-                  </div>
-
-                </div>
-
-                <div class="feature">
-
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-
-                  <div>
-                    Max Investment: $20,000
-                  </div>
-
-                </div>
-
-                <div class="feature">
-
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-
-                  <div>
-                    Return Rate:
-                    <span class="green-text">
-                      150% Every 10 Minutes
-                    </span>
-                  </div>
-
-                </div>
-
-                <div class="feature">
-
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-
-                  <div>
-                    Duration: 5 Days
-                  </div>
-
-                </div>
-
-                <div class="input-label">
-                  Investment Amount ($)
-                </div>
-
-                <div class="input-wrapper">
-
-                  <span class="dollar">$</span>
-
-                  <input type="text" class="form-control investment-input" value="5000" />
-
-                </div>
-
-                <input type="range" class="form-range" min="5000" max="20000" value="5000" />
-
-                <div class="min-max">
-
-                  <span>Min: $5,000</span>
-
-                  <span>Max: $20,000</span>
-
-                </div>
-
-                <div class="return-text">
-
-                  Potential Return:
-                  <span class="green-text">
-                    $7500.00
-                  </span>
-
-                  Every 10 Minutes
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- CARD 2 -->
-          <div class="col-lg-4">
-
-            <div class="investment-card">
-
-              <div class="roi-badge">
-
-                <i class="bi bi-graph-up-arrow"></i>
-
-                16% ROI
-
-              </div>
-
-              <div class="card-header-custom">
-
-                <h2 class="plan-title">
-                  Investment
-                </h2>
-
-                <div class="line"></div>
-
-                <div>
-
-                  <span class="price">
-                    $1,000
-                  </span>
-
-                  <span class="minimum">
-                    minimum
-                  </span>
-
-                </div>
-
-              </div>
-
-              <div class="card-body-custom">
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Min Investment: $1,000
-                  </div>
-                </div>
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Max Investment: $25,000
-                  </div>
-                </div>
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Return Rate:
-                    <span class="green-text">
-                      16% Daily
-                    </span>
-                  </div>
-                </div>
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Duration: 60 Days
-                  </div>
-                </div>
-
-                <div class="input-label">
-                  Investment Amount ($)
-                </div>
-
-                <div class="input-wrapper">
-
-                  <span class="dollar">$</span>
-
-                  <input type="text" class="form-control investment-input" value="1000" />
-
-                </div>
-
-                <input type="range" class="form-range" min="1000" max="25000" value="1000" />
-
-                <div class="min-max">
-
-                  <span>Min: $1,000</span>
-
-                  <span>Max: $25,000</span>
-
-                </div>
-
-                <div class="return-text">
-
-                  Potential Return:
-                  <span class="green-text">
-                    $160.00
-                  </span>
-
-                  Daily
-
-                </div>
-
-                <button class="join-btn">
-
-                  <i class="bi bi-lock-fill"></i>
-
-                  Join Investment Plan
-
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- CARD 3 -->
-          <div class="col-lg-4">
-
-            <div class="investment-card active-plan">
-
-              <div class="roi-badge">
-
-                <i class="bi bi-graph-up-arrow"></i>
-
-                50% ROI
-
-              </div>
-
-              <div class="card-header-custom">
-
-                <h2 class="plan-title">
-                  Investment
-                </h2>
-
-                <div class="line"></div>
-
-                <div>
-
-                  <span class="price">
-                    $25,000
-                  </span>
-
-                  <span class="minimum">
-                    minimum
-                  </span>
-
-                </div>
-
-              </div>
-
-              <div class="card-body-custom">
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Min Investment: $25,000
-                  </div>
-                </div>
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Max Investment: $10,000,000
-                  </div>
-                </div>
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Return Rate:
-                    <span class="green-text">
-                      50% Daily
-                    </span>
-                  </div>
-                </div>
-
-                <div class="feature">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-lg"></i>
-                  </div>
-                  <div>
-                    Duration: 60
-                  </div>
-                </div>
-
-                <div class="input-label">
-                  Investment Amount ($)
-                </div>
-
-                <div class="input-wrapper">
-
-                  <span class="dollar">$</span>
-
-                  <input type="text" class="form-control investment-input" value="25000" />
-
-                </div>
-
-                <input type="range" class="form-range" min="25000" max="10000000" value="25000" />
-
-                <div class="min-max">
-
-                  <span>Min: $25,000</span>
-
-                  <span>Max: $10,000,000</span>
-
-                </div>
-
-                <div class="return-text">
-
-                  Potential Return:
-                  <span class="green-text">
-                    $12500.00
-                  </span>
-
-                  Daily
-
-                </div>
-
-                <button class="join-btn">
-
-                  <i class="bi bi-lock-fill"></i>
-
-                  Join Investment Plan
-
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
 
         </div>
-        
-         
-      
+
 
       </div><!--end of section body-->
     </section>
-
+    
+   
   </div>
   <footer class="main-footer">
     <div class="footer-left">
@@ -828,6 +460,11 @@
   <script src="assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/investmentPlan.js"></script>
+   <script src="assets/bundles/sweetalert/sweetalert.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/sweetalert.js"></script>
+ 
 
   </body>
 

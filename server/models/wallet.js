@@ -17,7 +17,8 @@ const walletSchema = new Schema({
 
     balance:{
         type:Number,
-        default:0
+        default:0,
+        min:0
     },
 
     profit:{

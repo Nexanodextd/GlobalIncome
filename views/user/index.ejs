@@ -2,7 +2,7 @@
   <!-- Main Content -->
   <div class="main-content">
     <section class="section">
-      
+
       <div class="row ">
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="card">
@@ -12,11 +12,13 @@
                   <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                     <div class="card-content">
                       <h2 class="font-12"><i class="fa-solid fa-wallet"></i> Account Balance</h2>
-                      <h2 class="mb-3 font-18">$<%= wallet.balance %></h2>
-                      <p class="mb-0 font-10"><i class="fa fa-calendar" style="color:goldenrod"></i> Total Available Balance</p>
-                      
+                      <h2 class="mb-3 font-18">$<%= wallet.balance %>
+                      </h2>
+                      <p class="mb-0 font-10"><i class="fa fa-calendar" style="color:goldenrod"></i> Total Available
+                        Balance</p>
+
                     </div>
-                    
+
                   </div>
 
                 </div>
@@ -32,8 +34,10 @@
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                     <div class="card-content">
                       <h5 class="font-12"><i class="fa fa-plus"></i> Total Profit</h5>
-                      <h2 class="mb-3 font-18">$<%= wallet.profit %></h2>
-                      <p class="mb-0 font-10"><i class="fa fa-calendar" style="color:goldenrod"></i> included in Balance</p>
+                      <h2 class="mb-3 font-18">$<%= wallet.profit %>
+                      </h2>
+                      <p class="mb-0 font-10"><i class="fa fa-calendar" style="color:goldenrod"></i> included in Balance
+                      </p>
                     </div>
                   </div>
 
@@ -49,8 +53,8 @@
                 <div class="row ">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                     <div class="card-content">
-                      <h5 class="font-12">Total Withdrawal</h5>
-                      <h2 class="mb-3 font-18">$128</h2>
+                      <h5 class="font-12">Total Investment</h5>
+                      <h2 class="mb-3 font-18">$<%= totalAmount %></h2>
                       <p class="mb-0 font-10"> <i class="fa fa-calendar" style="color:goldenrod"></i> All time</p>
                     </div>
                   </div>
@@ -68,7 +72,8 @@
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                     <div class="card-content">
                       <h5 class="font-12">Bonus</h5>
-                      <h2 class="mb-3 font-18">$<%= wallet.bonus %></h2>
+                      <h2 class="mb-3 font-18">$<%= wallet.bonus %>
+                      </h2>
                       <p class="mb-0 font-10"><i class="fa fa-calendar" style="color:goldenrod"></i> All time</p>
                     </div>
                   </div>
@@ -81,24 +86,25 @@
       </div>
 
       <div class="row"><!--KYC SECTION-->
-        <% if ( kyc.status=="pending") { %>
+        <% if ( kyc.status=="pending" ) { %>
 
-           <div class="col-12 col-sm-12 col-lg-12">
+          <div class="col-12 col-sm-12 col-lg-12">
 
-           <div class="card">
-               <div class="alert alert-dark alert-has-icon" style="width: 98%; margin: auto; margin-top: 2%; margin-bottom:2%;">
-                      <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-                      <div class="alert-body">
-                        <div class="alert-title">Hey there, is it really you?</div>
-                              Verifying your information helps us prevent someone else from creating an account in your name.
-                      </div>
-                    </div>
-           </div>
+            <div class="card">
+              <div class="alert alert-dark alert-has-icon"
+                style="width: 98%; margin: auto; margin-top: 2%; margin-bottom:2%;">
+                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                <div class="alert-body">
+                  <div class="alert-title">Hey there, is it really you?</div>
+                  Verifying your information helps us prevent someone else from creating an account in your name.
+                </div>
+              </div>
+            </div>
 
-         </div>
-         
-        <% } %>
-        
+          </div>
+
+          <% } %>
+
       </div><!--END OF KYC SECTION-->
 
       <div class="row">
@@ -127,8 +133,8 @@
             </div>
           </div>
         </div>
-          
-        
+
+
 
 
         <div class="col-12 col-sm-12 col-lg-4">
@@ -138,7 +144,8 @@
 
             <h4>⚡ Quick Trade</h4>
             <p class="mb-0">Start a new trade instantly or explore investment plans.</p>
-               <a class="btn btn-info" href="/deposit" style="color:white "><i class="fa-solid fa-plus" sty></i> Deposite</a>
+            <a class="btn btn-info" href="/deposit" style="color:white "><i class="fa-solid fa-plus" sty></i>
+              Deposite</a>
           </div>
           <div class="card ">
             <div class="card-header">
@@ -146,17 +153,24 @@
                 Place a Trade</a>
             </div>
             <div class="card-body">
+              <div id="successmsg"></div>
               <form id="trade_form">
+                <h3>
+                  <span id="selectedCoin">---</span>
+                </h3>
 
-
+                <h2>
+                  $<span id="coinPrice">0.00</span>
+                </h2>
+                <div id="trade_smg"></div>
                 <div class="form-group">
                   <label>Assets</label>
-                  <select name="" id="" class="form-control">
-                    <option value="USDT/BTC">USDT/BTC</option>
-                    <option value="USDT/ETH">USDT/ETH</option>
-                    <option value="USDT/SOL">USDT/SOL</option>
-                    <option value="USDT/LTC">USDT/LTC</option>
-                    <option value="USDT/XRP">USDT/XRP</option>
+                  <select  id="coinSelect" class="form-control">
+                    <option value="BTC">USDT/BTC</option>
+                    <option value="ETH">USDT/ETH</option>
+                    <option value="SOL">USDT/SOL</option>
+                    <option value="LTC">USDT/LTC</option>
+                    <option value="XRP">USDT/XRP</option>
                   </select>
                 </div>
 
@@ -168,7 +182,7 @@
                         <i class="fa-solid fa-dollar-sign"></i>
                       </div>
                     </div>
-                    <input type="text" class="form-control phone-currency" placeholder="Minimum 5000">
+                    <input type="text" id="amount" class="form-control phone-currency" placeholder="Minimum 5000">
 
                   </div>
                 </div>
@@ -177,13 +191,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Leverage</label>
-                      <select name="" id="" class="form-control">
+                      <select name="" id="leverage" class="form-control">
                         <option value="1x">1x</option>
-                         <option value="2x">2x</option>
-                          <option value="5x">5x</option>
-                           <option value="10x">10x</option>
-                            <option value="50x">50x</option>
-                             <option value="100x">100x</option>
+                        <option value="2x">2x</option>
+                        <option value="5x">5x</option>
+                        <option value="10x">10x</option>
+                        <option value="50x">50x</option>
+                        <option value="100x">100x</option>
                       </select>
                     </div>
 
@@ -193,12 +207,12 @@
                       <label>Expiration</label>
                       <select name="" id="expiration" class="form-control">
                         <option value="1 Minute">1 Minute</option>
-                         <option value="5 Minutes">5 Minutes</option>
-                          <option value="15 Minutes">15 Minutes</option>
-                           <option value="30 Minutes">30 Minutes</option>
-                            <option value="1 Hour">1 hours</option>
-                             <option value="7 hours">7 hours</option>
-                             <option value="24 hours">14 hours</option>
+                        <option value="5 Minutes">5 Minutes</option>
+                        <option value="15 Minutes">15 Minutes</option>
+                        <option value="30 Minutes">30 Minutes</option>
+                        <option value="1 Hour">1 hours</option>
+                        <option value="7 hours">7 hours</option>
+                        <option value="24 hours">14 hours</option>
                       </select>
                     </div>
 
@@ -206,16 +220,14 @@
                 </div>
                 <div class="row">
                   <div class="col-12 col-md-6">
-                    <button type="submit" style="width: 90%; margin-bottom: 2%;" name="order_type" value="Buy"
-                      class="btn btn-success"
+                    <button style="width: 90%; margin-bottom: 2%;" id="BUY" value="Buy" class="btn btn-success"
                       class="flex-1 bg-gradient-to-br from-green-500 to-emerald-600 text-white py-2 sm:py-3 rounded-xl shadow hover:opacity-90 transition-all flex items-center justify-center gap-2 text-sm sm:text-base font-semibold">
                       <i class="fa-solid fa-arrow-trend-up"></i> BUY
                     </button>
 
                   </div>
                   <div class=" col-12 col-md-6">
-                    <button type="submit" style="width: 90%;" name="order_type" class="btn btn-danger" value="Sell"
-                      class="flex-1 bg-gradient-to-br from-red-500 to-pink-600 text-white py-2 sm:py-3 rounded-xl shadow hover:opacity-90 transition-all flex items-center justify-center gap-2 text-sm sm:text-base font-semibold">
+                    <button style="width: 90%;" id="SELL" name="" class="btn btn-danger" value="Sell" class="flex-1 bg-gradient-to-br from-red-500 to-pink-600 text-white py-2 sm:py-3 rounded-xl shadow hover:opacity-90 transition-all flex items-center justify-center gap-2 text-sm sm:text-base font-semibold">
                       <i class="fa-solid fa-arrow-trend-down"></i> SELL
                     </button>
                   </div>
@@ -275,7 +287,7 @@
               <div class="d-flex align-items-center gap-2">
 
                 <div class="ref-link-box flex-grow-1" id="refLink">
-                   <%= user.referralCode %>
+                  <%= user.referralCode %>
                 </div>
 
                 <button class="btn copy-btn text-white px-3" onclick="copyLink()" style="margin-left: 1;">
@@ -295,6 +307,6 @@
       </div><!--crypto market end-->
 
     </section>
-
+    
   </div>
   <%- include('user_partials/footer') %>

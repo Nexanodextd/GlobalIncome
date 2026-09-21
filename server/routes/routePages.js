@@ -15,6 +15,9 @@ router.get('/deposit',protected,controllpages.deposit);
 router.get('/payment',protected,controllpages.payment);
 router.get('/depositHistory',protected,controllpages.depositHistory);
 router.get('/investmentPlans',protected,controllpages.investmentPlans);
+router.get('/investmentHistory',protected,controllpages.investmentHistory);
+router.get('/portfolio',protected,controllpages.portforlio);
+router.get('/profile',protected,controllpages.profile)
 
 
 
