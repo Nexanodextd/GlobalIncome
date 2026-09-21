@@ -42,13 +42,15 @@ exports.dashboard = async(req,res)=>{
              
               const totalInvestment_amount = investments.reduce((total,investment)=> total+investment.amount,0);
               totalAmount = totalInvestment_amount.toLocaleString();
+              const balance = wallet.balance.toLocaleString({maximumFractionDigits:2});
         res.render('user/index',
           {
                locals,
                user,
                wallet,
                kyc,
-               totalAmount
+               totalAmount,
+               balance
           });
 }
 
@@ -162,6 +164,7 @@ exports.profile = async(req,res)=>{
             }
              const ID = req.user.id;
              const user = await userModel.findOne({_id:ID});
+              
             // const transHistory = await trans.find({user:ID});
              const kyc = await Kyc.findOne({user:ID});
              
@@ -170,6 +173,23 @@ exports.profile = async(req,res)=>{
                locals,   
                user,
                kyc,
+              
+          });
+}
+
+exports.withdrawal = async(req,res)=>{
+
+      const locals={
+           title:"Withdrawal"
+            }
+             const ID = req.user.id;
+             const user = await userModel.findOne({_id:ID});
+              
+        res.render('user/withdrawal',
+          {
+               locals,   
+               user,
+              
               
           });
 }

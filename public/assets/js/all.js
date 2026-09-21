@@ -244,3 +244,88 @@ $('#updateUserProfile').on('submit',function(e){
                  })
       }
 })
+
+$(document).on("change", "#selectPaymentMethod", function () {
+
+    let method = $(this).val();
+
+    if (method === "Bank") {
+
+        // Show bank fields
+        $("#bankFields").slideDown();
+
+        // Hide crypto fields
+        $("#cryptoFields").slideUp();
+
+        // Remove crypto requirement
+        $("#walletAddress").prop("required", false);
+
+    } else {
+
+        // Show crypto fields
+        $("#cryptoFields").slideDown();
+
+        // Hide bank fields
+        $("#bankFields").slideUp();
+
+        // Make wallet required
+        $("#walletAddress").prop("required", true);
+    }
+
+});
+
+
+$(document).on("submit", "#WithdrawFunds", function (e) {
+
+    e.preventDefault();
+
+    let form = $(this);
+
+    let paymentMethod = form.find("#selectPaymentMethod").val();
+    let amount = form.find("#amount").val();
+
+    let data = {
+        paymentMethod: paymentMethod,
+        amount: amount
+    };
+
+    if (paymentMethod === "Bank") {
+
+        data.accountName = form.find("[name='accountName']").val();
+        data.accountNumber = form.find("[name='accountNumber']").val();
+        data.bankName = form.find("[name='bankName']").val();
+
+    } else {
+
+        data.walletAddress = form.find("#walletAddress").val();
+
+    }
+
+    console.log(data);
+
+    $.ajax({
+        url: "/api/withdrawal",
+        type: "POST",
+        data: data,
+
+        success: function (response) {
+
+            if (response.success) {
+
+                     swal(`${response.message}`, '', 'success');
+                
+
+            }
+
+        },
+
+        error: function (xhr) {
+
+            console.log(xhr.responseJSON);
+
+            swal(xhr.responseJSON?.message,'','error');
+
+        }
+    });
+
+});

@@ -10,6 +10,9 @@ const walletAddress_model = require('../models/walletAddress_model');
 const investment = require('../models/investment_model')
 const prices = require("../utils/websocket");
 const users_model = require('../models/users_model');
+const withdrawal_model = require('../models/withdrawal_model');
+const crypto = require('crypto');
+const wallet = require('../models/wallet');
 
 
 const checkuserName = async (username) => {
@@ -233,7 +236,7 @@ exports.getWalletBalance = async (req, res) => {
         const getbalance = await Wallet.findOne({ user: userid });
         res.json({
             success: true,
-            data:getbalance
+            data: getbalance
 
         })
     } catch (err) {
@@ -241,21 +244,133 @@ exports.getWalletBalance = async (req, res) => {
     }
 }
 
-exports.editProfile = async(req,res)=>{
-         const userid = req.user.id;
-         const {dob,address} = req.body;
-         try{
-                 const update_user = await users_model.updateOne({_id:userid},{dob:dob,address:address})
-                 res.status(200).json({
-                      success:true,
-                      message:"Record successfully updated",
-                      data:update_user
-                 })
-         }catch(err){
-              res.status(400).json({
-                     success:false,
-                     message:err.message
-              })
-         }
+exports.editProfile = async (req, res) => {
+    const userid = req.user.id;
+    const { dob, address } = req.body;
+    try {
+        const update_user = await users_model.updateOne({ _id: userid }, { dob: dob, address: address })
+        res.status(200).json({
+            success: true,
+            message: "Record successfully updated",
+            data: update_user
+        })
+    } catch (err) {
+        res.status(400).json({
+            success: false,
+            message: err.message
+        })
+    }
 }
 
+exports.withdrawal = async (req, res) => {
+    try {
+
+        const userId = req.user.id;
+
+        const { paymentMethod, amount, walletAddress, accountName, accountNumber, bankName } = req.body;
+
+        if (!paymentMethod || !amount) {
+
+            return res.status(400).json({
+                success: false,
+                message: "Payment method and amount are required"
+            });
+
+        }
+
+        // Validate amount
+        if (Number(amount) <= 0) {
+
+            return res.status(400).json({
+                success: false,
+                message: "Invalid amount"
+            });
+
+        }
+
+
+        // Generate transaction reference
+        const reference =
+            "TXN-" +
+            Date.now() +
+            "-" +
+            crypto.randomBytes(4).toString("hex").toUpperCase();
+
+        const getBalance = await Wallet.findOne({ user: userId });
+        const balance = getBalance.balance;
+        if (balance < amount) {
+            console.log("Inssufficient Balance");
+            res.status(400).json({
+                success: false,
+                message: "Insuficient Balance"
+
+            });
+        } else {
+            const newBalance = balance - amount;
+             await Wallet.updateOne({user:userId},{balance:newBalance});
+            const transaction = await withdrawal_model.create({
+
+                user: userId,
+
+                transactionType: "Withdrawal",
+
+                paymentMethod: paymentMethod,
+
+                amount: Number(amount),
+
+                walletAddress:
+                    paymentMethod === "Bank"
+                        ? null
+                        : walletAddress,
+
+                accountName:
+                    paymentMethod === "Bank"
+                        ? accountName
+                        : null,
+
+                accountNumber:
+                    paymentMethod === "Bank"
+                        ? accountNumber
+                        : null,
+
+                bankName:
+                    paymentMethod === "Bank"
+                        ? bankName
+                        : null,
+
+                reference: reference,
+
+                status: "Pending"
+
+            });
+
+
+            res.status(201).json({
+
+                success: true,
+
+                message: "Your Widthrawal has been submitted successfully.",
+
+                data: transaction
+
+            });
+
+        }
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).json({
+
+            success: false,
+
+            message: "Unable to withdraw transaction",
+
+            error: err.message
+
+        });
+
+
+    }
+}

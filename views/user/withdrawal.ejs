@@ -1,0 +1,242 @@
+<%- include('user_partials/header') %>
+  <!-- Main Content -->
+  <div class="main-content">
+    <section class="section">
+      <div class="section-body">
+
+
+
+        <div class="container py-5">
+
+
+
+
+
+          <!-- MAIN CONTENT -->
+          <div class="row g-4">
+
+            <!-- LEFT -->
+            <div class="col-lg-8" style="margin-bottom: 2%;">
+
+              <div class="card-custom">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+
+                  <h3 class="mb-0">
+                    Withdraw Funds
+                  </h3>
+
+
+
+                </div>
+
+                <form id="WithdrawFunds">
+
+                  <!-- PAYMENT METHOD -->
+                  <div class="mb-4">
+
+                    <label>
+                      Payment Method *
+                    </label>
+
+                    <select class="form-select form-control" id="selectPaymentMethod" style="height:50px">
+
+                      <option value="USDT">USDT</option>
+                      <option value="BTC">Bitcoin</option>
+                      <option value="ETH">Ethereum</option>
+                      <option value="BCH">Bitcoin Cash</option>
+                      <option value="Bank">Bank</option>
+
+
+                    </select>
+
+                  </div>
+
+                  <!--CRYPTO FIELDS-->
+                  <div id="cryptoFields">
+
+                    <div class="mb-4">
+
+                      <label>
+                        Wallet Address
+                      </label>
+
+                      <input type="text" id="walletAddress" class="form-control" placeholder="Enter Wallet Address"
+                        style="height:50px" />
+
+                    </div>
+
+                  </div><!--END OF CRYPTO FIELDS-->
+
+
+                  <!--BANK FIELDS-->
+                  <div id="bankFields" style="display: none;" class="mt-3">
+
+
+                    <div class="mb-4">
+
+                      <label>
+                        Bank Name *
+                      </label>
+
+                      <input type="text" id="bankName" name="bankName" class="form-control" placeholder="Enter Bank Name"
+                        style="height:50px" />
+
+                    </div>
+
+                    <div class="mb-4">
+
+                      <label>
+                        Account Name *
+                      </label>
+
+                      <input type="text" name="accountName" class="form-control" placeholder="Enter Account Name"
+                        style="height:50px" />
+
+                    </div>
+
+                    <div class="mb-4">
+
+                      <label>
+                        Account Number *
+                      </label>
+
+                      <input type="text" name="accountNumber" class="form-control" placeholder="Enter Account Number"style="height:50px" />
+
+                    </div>
+
+                  </div><!--END OF BANK FIELDS-->
+
+                  <div class="mb-4">
+
+                      <label>
+                        Amount *
+                      </label>
+
+                      <input type="text" id="amount" class="form-control" placeholder="Enter Amount"style="height:50px" />
+
+                    </div>
+
+                  <!-- BUTTON -->
+                  <button type="submit" class="btn deposit-btn w-100">
+
+                    <i class="bi bi-currency-dollar"></i>
+                    Withdraw Funds
+
+                  </button>
+
+                </form>
+
+
+
+
+
+              </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="col-lg-4">
+
+              <div class="card-custom">
+
+                <h3 class="mb-4">
+                  Payment Methods
+                </h3>
+
+                <div class="payment-item">
+
+                  <i class="bi bi-wallet2"></i>
+
+                  <span>USDT</span>
+
+                </div>
+
+                <div class="payment-item">
+
+                  <i class="bi bi-currency-bitcoin"></i>
+
+                  <span>Bitcoin</span>
+
+                </div>
+
+                <div class="payment-item">
+
+                  <i class="bi bi-currency-exchange"></i>
+
+                  <span>Ethereum</span>
+
+                </div>
+                <div class="payment-item">
+
+                  <i class="bi bi-bank"></i>
+
+                  <span>Bank Transfer</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+        <div id="bankFields" style="display: none;" class="mt-3">
+          <h4>Bank Transfer Details</h4>
+          <div class="card card-body">
+            <p class="text-muted">Please transfer the exact amount to the account below:</p>
+            <p><strong>Bank Name:</strong> Example Bank</p>
+            <p><strong>Account Name:</strong> Your Company Ltd</p>
+            <p><strong>Account Number:</strong> 1234567890</p>
+
+            <!-- User input field for verification -->
+            <div class="form-group mb-3">
+              <label for="receiptUpload" class="form-label">Upload Payment Receipt</label>
+              <input type="file" class="form-control" id="receiptUpload">
+            </div>
+          </div>
+        </div>
+
+
+      </div><!--end of section body-->
+    </section>
+
+  </div>
+  <footer class="main-footer">
+    <div class="footer-left">
+      <a href="">Global Invest</a></a>
+    </div>
+    <div class="footer-right">
+    </div>
+  </footer>
+  </div>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/all.js"></script>
+  <script src="assets/bundles/sweetalert/sweetalert.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/sweetalert.js"></script>
+  </body>
+
+
+  <script>
+
+  </script>
+  </body>
+
+
+  <!-- blank.html  21 Nov 2019 03:54:41 GMT -->
+
+  </html>
